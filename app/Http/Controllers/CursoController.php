@@ -20,26 +20,28 @@ class CursoController extends Controller
 
     public function store(Request $request){
         $curso = new Curso();
-
         $curso->name = $request->name;
         $curso->description = $request->description;
         $curso->categoria = $request->categoria; 
-
         $curso->save(); 
 
         return redirect()->route('cursos.show', $curso);
     }
 
-    public function show($id){
-
-        $curso = Curso::find($id);
-         
+    public function show(Curso $curso){
         return view('cursos.show', compact('curso'));
     }
 
-    public function edit($id){
-        $curso = Curso::find($id);
+    public function edit(Curso $curso){
+        return view('cursos.edit', compact('curso'));
+    }
 
-        return $curso;
+    public function update(Request $request, Curso $curso){
+        $curso->name = $request->name;
+        $curso->description = $request->descripcion;
+        $curso->categoria = $request->categoria;
+        $curso->save();
+
+        return redirect()->route('cursos.show', $curso);
     }
 }
