@@ -13,7 +13,7 @@ class StoreCurso extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,7 +26,7 @@ class StoreCurso extends FormRequest
         return [
                 'name' => 'required',
                 'description' => 'required',
-                'categoria' => 'categoria'
+                //'categoria' => 'categoria'
         ];
     }
 
@@ -34,14 +34,14 @@ class StoreCurso extends FormRequest
     {
         return[
             'name' => 'nombre del curso',
-        ]
+        ];
     }
 
     public function messages()
     {
         return[
             'description.required' => 'Debe ingresar una descripcion del curso',
-        ]
+        ];
     }
 
 }

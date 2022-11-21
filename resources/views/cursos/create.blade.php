@@ -5,7 +5,7 @@
 @section('content')
     <h1>En esta pagina podras crear un curso</h1>
 
-    <form action="{{route('cursos.store')}}" mehod="POST">
+    <form action="{{route('cursos.store')}}" method="POST">
 
         @csrf 
 
@@ -25,7 +25,7 @@
         <label>
             Descripcion:
             <br>
-            <textarea name="descripcion" rows="5" value={{old('description')}}></textarea>
+            <textarea name="description" rows="5" value={{old('description')}}></textarea>
         </label>
         
         @error('description')
